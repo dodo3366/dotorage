@@ -1,119 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공부방 사이트</title>
+  <style>
+    /* 전체 배경색 설정 */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e; /* 어두운 배경 */
+      color: #fff;
+      display: flex;
+      height: 100vh;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-        }
+    /* 왼쪽 메뉴바 스타일 */
+    .menu-bar {
+      width: 250px;
+      background-color: #333;
+      padding: 20px;
+      height: 100%;
+      position: fixed;
+    }
 
-        header {
-            background-color: #6c63ff;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
+    .menu-bar h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+    /* 메뉴 스타일 */
+    .menu {
+      list-style-type: none;
+      padding: 0;
+    }
 
-        header p {
-            font-size: 1.2rem;
-        }
+    .menu li {
+      padding: 10px;
+      border-bottom: 1px solid #444;
+      position: relative;
+    }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #4946d1;
-            padding: 0.5rem;
-        }
+    .menu li a {
+      text-decoration: none;
+      color: #fff;
+      display: block;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-        }
+    /* 드롭다운 메뉴 스타일 */
+    .dropdown {
+      display: none;
+      background-color: #444;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 200px;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    .menu li:hover .dropdown {
+      display: block;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+    .dropdown li {
+      padding: 10px;
+      border-bottom: 1px solid #555;
+    }
 
-        .blog-post {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    .dropdown li a {
+      color: #bbb;
+    }
 
-        .blog-post h2 {
-            color: #6c63ff;
-            margin-bottom: 0.5rem;
-        }
+    /* 메인 컨텐츠 영역 */
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      width: 100%;
+    }
 
-        .blog-post p {
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #4946d1;
-            color: #fff;
-        }
-
-        footer p {
-            margin: 0;
-        }
-    </style>
+    /* 헤더 스타일 */
+    header {
+      background-color: #222;
+      padding: 15px;
+      text-align: center;
+      color: #fff;
+      font-size: 24px;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- 왼쪽 메뉴바 -->
+  <div class="menu-bar">
+    <h2>공부방</h2>
+    <ul class="menu">
+      <li>
+        <a href="#">홈</a>
+      </li>
+      <li>
+        <a href="#">강의</a>
+        <ul class="dropdown">
+          <li><a href="#">수학</a></li>
+          <li><a href="#">과학</a></li>
+          <li><a href="#">영어</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">커뮤니티</a>
+        <ul class="dropdown">
+          <li><a href="#">질문</a></li>
+          <li><a href="#">토론</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">설정</a>
+        <ul class="dropdown">
+          <li><a href="#">프로필</a></li>
+          <li><a href="#">계정</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="content">
     <header>
-        <h1>Welcome to Study Blog</h1>
-        <p>Your hub for learning and sharing knowledge</p>
+      공부방 사이트
     </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
-    </nav>
-    <div class="container">
-        <div class="blog-post">
-            <h2>Post Title 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue arcu. Curabitur ac nunc euismod.</p>
-            <a href="#">Read more...</a>
-        </div>
-        <div class="blog-post">
-            <h2>Post Title 2</h2>
-            <p>Quisque elementum nisl et lectus cursus, et feugiat urna interdum. Pellentesque habitant morbi tristique.</p>
-            <a href="#">Read more...</a>
-        </div>
+    <div>
+      <h3>환영합니다!</h3>
+      <p>여기에서 학습을 시작하세요.</p>
     </div>
-    <footer>
-        <p>&copy; 2024 Study Blog. All rights reserved.</p>
-    </footer>
+  </div>
+
+  <script>
+    // 드롭다운 메뉴에 마우스를 올릴 때 표시되도록 처리
+    const menuItems = document.querySelectorAll('.menu li');
+
+    menuItems.forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        const dropdown = this.querySelector('.dropdown');
+        if (dropdown) {
+          dropdown.style.display = 'block';
+        }
+      });
+
+      item.addEventListener('mouseleave', function() {
+        const dropdown = this.querySelector('.dropdown');
+        if (dropdown) {
+          dropdown.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

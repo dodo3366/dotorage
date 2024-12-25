@@ -3,156 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>공부방 사이트</title>
+  <title>브런치스토리 스타일 사이트</title>
   <style>
-    /* 전체 배경색 설정 */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #1e1e1e; /* 어두운 배경 */
       color: #fff;
-      display: flex;
-      height: 100vh;
     }
 
-    /* 왼쪽 메뉴바 스타일 */
-    .menu-bar {
-      width: 250px;
+    /* 네비게이션 바 */
+    nav {
       background-color: #333;
-      padding: 20px;
-      height: 100%;
-      position: fixed;
-    }
-
-    .menu-bar h2 {
-      text-align: center;
-      color: #fff;
-      margin-bottom: 30px;
-    }
-
-    /* 메뉴 스타일 */
-    .menu {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .menu li {
-      padding: 10px;
-      border-bottom: 1px solid #444;
-      position: relative;
-    }
-
-    .menu li a {
-      text-decoration: none;
-      color: #fff;
-      display: block;
-    }
-
-    /* 드롭다운 메뉴 스타일 */
-    .dropdown {
-      display: none;
-      background-color: #444;
-      position: absolute;
-      left: 100%;
+      padding: 15px;
+      position: sticky;
       top: 0;
-      width: 200px;
+      width: 100%;
+      z-index: 10;
     }
 
-    .menu li:hover .dropdown {
-      display: block;
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
     }
 
-    .dropdown li {
-      padding: 10px;
-      border-bottom: 1px solid #555;
+    nav ul li {
+      margin: 0 20px;
     }
 
-    .dropdown li a {
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    /* 컨텐츠 */
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #444;
+      width: 250px;
+      margin: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card .content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .card p {
+      font-size: 14px;
       color: #bbb;
     }
 
-    /* 메인 컨텐츠 영역 */
-    .content {
-      margin-left: 250px;
-      padding: 20px;
+    /* 슬라이더 */
+    .slider {
+      position: relative;
+      max-width: 100%;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
       width: 100%;
+      height: 400px;
+      object-fit: cover;
     }
 
-    /* 헤더 스타일 */
-    header {
-      background-color: #222;
-      padding: 15px;
-      text-align: center;
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .slider-controls span {
+      background-color: rgba(0, 0, 0, 0.5);
       color: #fff;
-      font-size: 24px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- 왼쪽 메뉴바 -->
-  <div class="menu-bar">
-    <h2>공부방</h2>
-    <ul class="menu">
-      <li>
-        <a href="#">홈</a>
-      </li>
-      <li>
-        <a href="#">강의</a>
-        <ul class="dropdown">
-          <li><a href="#">수학</a></li>
-          <li><a href="#">과학</a></li>
-          <li><a href="#">영어</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">커뮤니티</a>
-        <ul class="dropdown">
-          <li><a href="#">질문</a></li>
-          <li><a href="#">토론</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">설정</a>
-        <ul class="dropdown">
-          <li><a href="#">프로필</a></li>
-          <li><a href="#">계정</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <!-- 메인 콘텐츠 -->
-  <div class="content">
-    <header>
-      공부방 사이트
-    </header>
-    <div>
-      <h3>환영합니다!</h3>
-      <p>여기에서 학습을 시작하세요.</p>
-    </div>
-  </div>
-
-  <script>
-    // 드롭다운 메뉴에 마우스를 올릴 때 표시되도록 처리
-    const menuItems = document.querySelectorAll('.menu li');
-
-    menuItems.forEach(item => {
-      item.addEventListener('mouseenter', function() {
-        const dropdown = this.querySelector('.dropdown');
-        if (dropdown) {
-          dropdown.style.display = 'block';
-        }
-      });
-
-      item.addEventListener('mouseleave', function() {
-        const dropdown = this.querySelector('.dropdown');
-        if (dropdown) {
-          dropdown.style.display = 'none';
-        }
-      });
-    });
-  </script>
-
-</body>
-</html>
+      font-size: 30px;
+      padding

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>모던한 카드 레이아웃 & 네비게이션</title>
+  <title>모던한 슬라이더 & 왼쪽 메뉴</title>
   <style>
     /* 기본 스타일 */
     * {
@@ -71,10 +71,10 @@
 
     /* 슬라이더 */
     .slider-container {
-      position: fixed;
+      position: relative;
       top: 0;
-      left: 0;
-      width: 100%;
+      left: 250px; /* 메뉴바 너비만큼 여백 */
+      width: calc(100% - 250px);
       height: 300px;
       overflow: hidden;
       z-index: 1;
@@ -97,53 +97,40 @@
 
     /* 메인 콘텐츠 */
     .main-content {
-      margin-top: 320px; /* 슬라이더 높이만큼 여백 */
+      margin-top: 20px;
       padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      margin-left: 250px; /* 메뉴바 너비만큼 여백 */
     }
 
-    .card {
-      background-color: #444;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .main-content h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
     }
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .card h3 {
-      margin-top: 15px;
-      font-size: 20px;
-    }
-
-    .card p {
+    .main-content p {
+      font-size: 18px;
       color: #bbb;
-      font-size: 14px;
     }
 
     /* 반응형 디자인 */
     @media (max-width: 768px) {
+      .slider-container {
+        left: 0;
+        width: 100%;
+      }
+
       .main-content {
-        grid-template-columns: 1fr 1fr;
+        margin-left: 0;
+      }
+
+      .sidebar {
+        width: 200px;
       }
     }
 
     @media (max-width: 480px) {
-      .main-content {
-        grid-template-columns: 1fr;
+      .sidebar {
+        width: 150px;
       }
     }
   </style>
@@ -178,25 +165,10 @@
     </div>
   </div>
 
-  <!-- 카드 레이아웃 -->
+  <!-- 메인 콘텐츠 -->
   <div class="main-content">
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="카드 이미지 1">
-      <h3>카드 제목 1</h3>
-      <p>카드 1의 설명입니다. 더 많은 정보를 추가할 수 있습니다.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="카드 이미지 2">
-      <h3>카드 제목 2</h3>
-      <p>카드 2의 설명입니다. 더 많은 정보를 추가할 수 있습니다.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="카드 이미지 3">
-      <h3>카드 제목 3</h3>
-      <p>카드 3의 설명입니다. 더 많은 정보를 추가할 수 있습니다.</p>
-    </div>
+    <h1>환영합니다!</h1>
+    <p>이 페이지는 슬라이더와 왼쪽 고정 메뉴바가 있는 레이아웃입니다. 원하는 내용을 여기에 추가하세요.</p>
   </div>
 
   <script>

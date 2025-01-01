@@ -22,7 +22,8 @@
       height: 50vh; /* 화면의 절반 높이 */
       background: url('https://via.placeholder.com/1200x500') no-repeat center center/cover;
       z-index: -1; /* 배경처럼 동작하도록 설정 */
-      transform: scale(1.5);
+      width: 300px; 
+      transform: scale(3);
     }
 
     /* 이미지 가운데 정렬 */
